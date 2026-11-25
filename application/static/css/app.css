@@ -1,0 +1,136 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.site-footer {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 8px;
+  padding: 34px 20px 28px;
+  overflow: hidden;
+  text-align: center;
+  color: #56647a;
+  background: linear-gradient(180deg, rgba(231, 234, 255, 0) 0%, rgba(255, 255, 255, .72) 44%, rgba(255, 255, 255, .94) 100%);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: footer-enter 750ms cubic-bezier(.2, .75, .25, 1) 100ms forwards;
+}
+
+.site-footer::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(86%, 760px);
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, #7189ed 25%, #9271db 52%, #d78eb8 76%, transparent);
+  transform: translateX(-50%);
+}
+
+.footer-credit {
+  margin: 0;
+  color: #56647a;
+  font-size: clamp(.92rem, 2.5vw, 1.02rem);
+  font-weight: 500;
+  letter-spacing: .015em;
+}
+
+.footer-heart {
+  display: inline-block;
+  margin: 0 .12em;
+  transform-origin: center;
+  animation: heart-glow 2.6s ease-in-out infinite;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.footer-credit:hover .footer-heart {
+  transform: scale(1.16);
+  filter: drop-shadow(0 0 7px rgba(232, 75, 120, .48));
+}
+
+.footer-name {
+  display: inline-block;
+  color: #6758b6;
+  font-weight: 700;
+  transition: transform 220ms ease, text-shadow 220ms ease;
+}
+
+.footer-credit:hover .footer-name {
+  transform: translateY(-1px);
+  text-shadow: 0 5px 16px rgba(111, 87, 200, .22);
+}
+
+.footer-signature {
+  margin: 6px 0 0;
+  background: linear-gradient(100deg, #4768db 5%, #8658c8 52%, #d8759b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.28rem, 4vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -.035em;
+  line-height: 1.2;
+}
+
+.dashboard-page .site-footer {
+  color: #c9b99f;
+  background: linear-gradient(180deg, rgba(12, 10, 8, 0) 0%, rgba(17, 13, 10, .9) 50%, #110d0a 100%);
+}
+
+.dashboard-page .site-footer::before {
+  background: linear-gradient(90deg, transparent, #9f6b37 25%, #d0a15e 52%, #9f6b37 76%, transparent);
+}
+
+.dashboard-page .footer-credit {
+  color: #d7c8b0;
+}
+
+.dashboard-page .footer-name {
+  color: #e4bb77;
+}
+
+.dashboard-page .footer-signature {
+  background-image: linear-gradient(100deg, #c08a4d 5%, #f0d398 52%, #ad7140 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes footer-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heart-glow {
+  0%, 100% { filter: drop-shadow(0 0 1px rgba(232, 75, 120, .16)); }
+  50% { filter: drop-shadow(0 0 6px rgba(232, 75, 120, .42)); }
+}
+
+@media (max-width: 380px) {
+  .site-footer { padding: 28px 14px 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-footer { opacity: 1; transform: none; animation: none; }
+  .footer-heart, .footer-credit:hover .footer-heart, .footer-credit:hover .footer-name {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+}

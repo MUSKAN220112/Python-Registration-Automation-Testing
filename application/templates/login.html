@@ -1,0 +1,288 @@
+{% extends "base.html" %}
+
+{% block title %}Automation Testing Platform{% endblock %}
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+{% endblock %}
+{% block body_class %}landing-page{% endblock %}
+
+{% block content %}
+<header class="landing-header">
+  <nav class="top-nav page-width" aria-label="Main navigation">
+    <a class="landing-brand" href="#home" aria-label="Automation Workspace home">
+      <span class="brand-symbol" aria-hidden="true">
+        <svg viewBox="0 0 40 40" focusable="false"><path d="M20 4 35 12.5v15L20 36 5 27.5v-15L20 4Z"/><path d="m13 20 4.5 4.5L27 15"/></svg>
+      </span>
+      <span class="brand-copy"><strong>Automation</strong><small>TEST WORKSPACE</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-links" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="primary-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#projects">Projects</a>
+      <a href="#test-reports">Test Reports</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-signin" href="#login">Sign in <span aria-hidden="true">↗</span></a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero-section" id="home">
+    <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+    <div class="hero-layout page-width">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-pulse"></span> A smarter way to assure quality</p>
+        <h1>Welcome to<br><span>Automation Testing</span><br>Platform</h1>
+        <p class="hero-description">Build confidence in every release with a Python-powered workspace for browser automation, data-driven tests and clear, actionable reports.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#login">Get started <span aria-hidden="true">→</span></a>
+          <a class="button button-outline" href="#projects"><span class="play-icon" aria-hidden="true">▶</span> Explore projects</a>
+        </div>
+        <div class="hero-proof">
+          <span class="proof-check" aria-hidden="true">✓</span>
+          <span>Python · Selenium · Pytest</span>
+          <span class="proof-divider" aria-hidden="true"></span>
+          <span>CSV &amp; Excel ready</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Illustration of an automated test run dashboard">
+        <div class="visual-glow"></div>
+        <div class="orbit orbit-outer"></div>
+        <div class="orbit orbit-inner"></div>
+        <div class="orbit-node orbit-node-top" aria-hidden="true">✓</div>
+        <div class="orbit-node orbit-node-bottom" aria-hidden="true">&lt;/&gt;</div>
+        <div class="test-window">
+          <div class="window-topbar">
+            <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>test_run.py</span>
+            <span class="window-status"><i></i> PYTEST</span>
+          </div>
+          <div class="window-content">
+            <div class="terminal-line"><span class="line-number">01</span><span class="code-muted">automation</span>.<span class="code-blue">workspace</span></div>
+            <div class="test-row"><span class="test-check">✓</span><span>Browser automation</span></div>
+            <div class="test-row"><span class="test-check">✓</span><span>CSV &amp; Excel integration</span></div>
+            <div class="test-row"><span class="test-check">✓</span><span>Readable HTML reporting</span></div>
+            <div class="terminal-line terminal-finish"><span class="line-number">›</span><span class="code-green">quality</span><span class="code-muted">.assured()</span></div>
+            <div class="run-progress"><span></span></div>
+          </div>
+          <div class="window-footer"><span><i class="live-dot"></i> Python test automation</span><span>Explore platform <b>↗</b></span></div>
+        </div>
+        <div class="floating-chip chip-quality"><span class="chip-icon" aria-hidden="true">✦</span><span><strong>Quality assured</strong><small>Every test, accounted for</small></span></div>
+        <div class="floating-chip chip-python"><span class="python-mark" aria-hidden="true">Py</span><span><strong>Python powered</strong><small>Reliable, repeatable runs</small></span></div>
+      </div>
+    </div>
+    <div class="hero-bottom-line" aria-hidden="true"></div>
+  </section>
+
+  <section class="trust-strip" aria-label="Platform capabilities">
+    <div class="page-width trust-items">
+      <span>BUILT FOR CONFIDENCE</span>
+      <i aria-hidden="true"></i><strong>Browser automation</strong>
+      <i aria-hidden="true"></i><strong>Data-driven testing</strong>
+      <i aria-hidden="true"></i><strong>Readable reporting</strong>
+    </div>
+  </section>
+
+  <section class="section-block features-section" id="features">
+    <div class="page-width">
+      <div class="section-heading">
+        <p class="section-overline">ONE WORKSPACE. EVERY CHECK.</p>
+        <h2>Everything you need to<br><span>test with confidence.</span></h2>
+        <p>From the first form submission to the final report, bring your testing workflow together.</p>
+      </div>
+      <div class="feature-grid">
+        {% set features = [
+          ("01", "Automated testing", "Repeatable browser checks powered by Python, Selenium and Pytest.", "✓"),
+          ("02", "Login testing", "Verify sign-in flows, credentials and protected page access.", "↪"),
+          ("03", "Registration testing", "Exercise form validation, field rules and account creation.", "▤"),
+          ("04", "E-commerce journeys", "Cover shopping flows from browsing through checkout.", "▧"),
+          ("05", "Functional testing", "Check that important user-facing behavior works as intended.", "◎"),
+          ("06", "Test case management", "Keep test outcomes and coverage easy to review.", "☷"),
+          ("07", "Bug tracking signals", "Surface failed checks clearly so issues are easier to investigate.", "⌕"),
+          ("08", "Test execution", "Review recorded runs, statuses and timing in one place.", "▶"),
+          ("09", "Excel integration", "Read structured test inputs directly from Excel workbooks.", "X"),
+          ("10", "CSV integration", "Drive parameterized tests with portable CSV datasets.", "≡"),
+          ("11", "HTML test reports", "Open detailed, navigable reports from completed test runs.", "H"),
+          ("12", "Result analysis", "See pass and failure totals derived from available report data.", "↗")
+        ] %}
+        {% for number, title, description, icon in features %}
+          <article class="feature-card">
+            <div class="feature-card-top"><span class="feature-icon" aria-hidden="true">{{ icon }}</span><span class="feature-number">{{ number }}</span></div>
+            <h3>{{ title }}</h3>
+            <p>{{ description }}</p>
+            <span class="feature-arrow" aria-hidden="true">↗</span>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section section-block" id="projects">
+    <div class="page-width">
+      <div class="section-heading section-heading-row">
+        <div>
+          <p class="section-overline">YOUR AUTOMATION WORKSPACE</p>
+          <h2>Projects built for<br><span>quality at every step.</span></h2>
+          <p>Explore the automation projects available in this workspace.</p>
+        </div>
+        <a class="text-action" href="#test-reports">Browse test reports <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="project-grid">
+        {% for project in dashboard.projects %}
+          <article class="project-card">
+            <div class="project-card-heading">
+              <span class="project-icon" aria-hidden="true">⌘</span>
+              <span class="project-status status-{{ project.status|lower|replace(' ', '-') }}"><i></i>{{ project.status }}</span>
+            </div>
+            <p class="project-type">PYTHON AUTOMATION PROJECT</p>
+            <h3>{{ project.name }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="project-card-foot">
+              <span><b>{{ dashboard.summary.total if dashboard.summary else "—" }}</b> test cases in latest report</span>
+              <a href="#test-reports">View details <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        {% else %}
+          <div class="empty-card"><span aria-hidden="true">⌘</span><p>No automation projects were found in this workspace.</p></div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section section-block" id="statistics">
+    <div class="page-width stats-layout">
+      <div class="stats-intro">
+        <p class="section-overline">LIVE WORKSPACE SNAPSHOT</p>
+        <h2>Quality you can<br><span>measure.</span></h2>
+        <p>These figures are read from the project’s saved pytest report and Allure result files. No demo numbers.</p>
+        {% if dashboard.summary %}<span class="stats-updated">Latest report · {{ dashboard.summary.updated_at }}</span>{% else %}<span class="stats-updated">No saved pytest report found</span>{% endif %}
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card"><span class="stat-icon" aria-hidden="true">⌘</span><span class="stat-label">Total Projects</span><strong>{{ dashboard.projects|length }}</strong><small>in this workspace</small></article>
+        <article class="stat-card"><span class="stat-icon" aria-hidden="true">☷</span><span class="stat-label">Total Test Cases</span><strong>{{ dashboard.summary.total if dashboard.summary else "—" }}</strong><small>latest saved report</small></article>
+        <article class="stat-card stat-pass"><span class="stat-icon" aria-hidden="true">✓</span><span class="stat-label">Passed Tests</span><strong>{{ dashboard.summary.passed if dashboard.summary else "—" }}</strong><small>latest saved report</small></article>
+        <article class="stat-card stat-fail"><span class="stat-icon" aria-hidden="true">!</span><span class="stat-label">Failed Tests</span><strong>{{ dashboard.summary.failed if dashboard.summary else "—" }}</strong><small>latest saved report</small></article>
+        <article class="stat-card stat-wide"><span class="stat-icon" aria-hidden="true">▶</span><span class="stat-label">Total Test Executions</span><strong>{{ dashboard.total_executions }}</strong><small>recorded Allure test results</small></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="reports-section section-block" id="test-reports">
+    <div class="page-width">
+      <div class="section-heading section-heading-row">
+        <div>
+          <p class="section-overline">CLEAR RESULTS, READY TO REVIEW</p>
+          <h2>Test reports that<br><span>tell the full story.</span></h2>
+          <p>HTML reports currently available in the project workspace.</p>
+        </div>
+        <span class="report-count">{{ dashboard.reports|length }} report{% if dashboard.reports|length != 1 %}s{% endif %}</span>
+      </div>
+      {% if dashboard.reports %}
+        <div class="report-grid">
+          {% for report in dashboard.reports %}
+            <article class="report-card">
+              <span class="report-file-icon" aria-hidden="true">HTML</span>
+              <div class="report-card-copy"><span>PYTEST REPORT</span><h3>{{ report.name }}</h3><p>Updated {{ report.updated_at }}</p></div>
+              <a class="report-open" href="{{ url_for('view_test_report', filename=report.filename) }}" aria-label="Open {{ report.name }}">↗</a>
+            </article>
+          {% endfor %}
+        </div>
+        <p class="report-access-note">Report details are available after signing in.</p>
+      {% else %}
+        <div class="empty-card report-empty"><span aria-hidden="true">▤</span><p>No HTML test reports are currently available.</p></div>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="about-section section-block" id="about">
+    <div class="page-width about-layout">
+      <div class="about-visual" aria-hidden="true">
+        <div class="about-orbit"></div>
+        <div class="about-check"><span>✓</span><small>QUALITY<br>VERIFIED</small></div>
+        <span class="about-spark about-spark-one">✦</span><span class="about-spark about-spark-two">✦</span>
+        <div class="about-code"><span>from</span> selenium <span>import</span> WebDriver<br><span>assert</span> quality == <b>"ready"</b></div>
+      </div>
+      <div class="about-copy">
+        <p class="section-overline">ABOUT THE PLATFORM</p>
+        <h2>Make reliable testing<br><span>part of every release.</span></h2>
+        <p>This Python Automation Testing Platform brings browser-based checks, structured CSV and Excel test data, and readable test reports into one practical workspace. It helps teams and learners verify essential user journeys consistently and see what passed, what failed, and where to investigate next.</p>
+        <ul class="about-points">
+          <li><span>✓</span> Selenium and Pytest workflows</li>
+          <li><span>✓</span> Data-driven CSV and Excel coverage</li>
+          <li><span>✓</span> Report-backed project insights</li>
+        </ul>
+        <a class="text-action" href="#features">Discover the features <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="login-section section-block" id="login">
+    <div class="page-width login-layout">
+      <div class="login-message">
+        <p class="section-overline">YOUR WORKSPACE IS READY</p>
+        <h2>Sign in and get<br><span>back to quality.</span></h2>
+        <p>Access your protected dashboard, project details and complete test reports.</p>
+        <div class="login-security"><span aria-hidden="true">◈</span><p><strong>Secure access</strong><br>Your account password is verified against its stored hash.</p></div>
+      </div>
+      <div class="login-card">
+        <div class="login-card-heading">
+          <span class="login-card-icon" aria-hidden="true">↗</span>
+          <div><p>WELCOME BACK</p><h3>Sign in to Automation Workspace</h3></div>
+        </div>
+        {% if error %}<p class="login-error" id="login-error" role="alert"><span aria-hidden="true">!</span>{{ error }}</p>{% endif %}
+        <form class="landing-login-form" method="post" action="{{ url_for('login') }}">
+          <div class="login-field">
+            <label for="email">Username (registered email address)</label>
+            <div class="input-shell"><span aria-hidden="true">✉</span><input id="email" name="email" type="email" autocomplete="username" required value="{{ email or '' }}" placeholder="you@example.com"></div>
+          </div>
+          <div class="login-field">
+            <div class="password-label"><label for="password">Password</label><a href="#contact">Forgot password?</a></div>
+            <div class="input-shell password-shell"><span aria-hidden="true">⌑</span><input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Enter your password"><button class="password-toggle" type="button" aria-label="Show password" aria-pressed="false">Show</button></div>
+          </div>
+          <div class="login-options"><label class="remember-option"><input type="checkbox" name="remember_me"><span class="custom-check" aria-hidden="true">✓</span>Remember me</label><span>Protected workspace</span></div>
+          <button class="button button-primary login-submit" type="submit">Sign in securely <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="login-register">New to the platform? <a href="{{ url_for('register') }}">Create an account</a></p>
+        <p class="login-help">Forgot password? Contact your platform administrator. Self-service reset is not configured.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="page-width contact-inner">
+      <div><p class="section-overline">NEED A HAND?</p><h2>Let’s keep your testing<br><span>moving forward.</span></h2></div>
+      <div class="contact-note"><span class="contact-icon" aria-hidden="true">?</span><p><strong>Account or sign-in help</strong><br>Contact your platform administrator for account support or password assistance.</p><a href="#login">Return to sign in <span aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+{% block footer %}
+<footer class="landing-footer">
+  <div class="page-width landing-footer-main">
+    <a class="landing-brand footer-brand" href="#home" aria-label="Automation Workspace home">
+      <span class="brand-symbol" aria-hidden="true">
+        <svg viewBox="0 0 40 40" focusable="false"><path d="M20 4 35 12.5v15L20 36 5 27.5v-15L20 4Z"/><path d="m13 20 4.5 4.5L27 15"/></svg>
+      </span>
+      <span class="brand-copy"><strong>Automation</strong><small>TEST WORKSPACE</small></span>
+    </a>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#features">Features</a>
+      <a href="#projects">Projects</a><a href="#test-reports">Test Reports</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="page-width landing-footer-bottom">
+    <span>© {{ current_year }} Automation Workspace. All rights reserved.</span>
+    <span class="landing-credit">Made by <strong>Muskan Sunder</strong></span>
+  </div>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/landing.js') }}" defer></script>
+{% endblock %}

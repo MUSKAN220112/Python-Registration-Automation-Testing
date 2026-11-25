@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Create an account{% endblock %}
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+
+{% block content %}
+<main class="auth-main">
+  <header class="auth-heading">
+    <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span> Registration Portal</p>
+    <h1>Create your account</h1>
+    <p class="auth-intro">Set up your profile to get started. Your information is handled securely.</p>
+  </header>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}<p class="auth-notice {{ category }}" role="status">{{ message }}</p>{% endfor %}
+  {% endwith %}
+  {% if errors %}<p class="auth-notice" role="alert">Please review the highlighted fields.</p>{% endif %}
+  {% set form = form or {} %}
+  <form action="{{ url_for('register') }}" method="post" class="auth-grid">
+    {% macro field(name, label, type="text", required=true, attrs="") %}
+      <div class="{{ 'full' if name == 'address' else '' }}">
+        <label for="{{ name }}">{{ label }}</label>
+        <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ form.get(name, '') if type not in ['password'] else '' }}"
+          {% if required %}required{% endif %} {{ attrs }}>
+        {% if errors and errors.get(name) %}<p class="auth-error" role="alert">{{ errors[name] }}</p>{% endif %}
+      </div>
+    {% endmacro %}
+    {{ field("first_name", "First Name", attrs='maxlength="80"') }}
+    {{ field("last_name", "Last Name", attrs='maxlength="80"') }}
+    {{ field("email", "Email", "email", attrs='maxlength="254"') }}
+    {{ field("mobile_number", "Mobile Number", "tel", attrs='pattern="\\+?[0-9][0-9\\s()-]{5,18}[0-9]"') }}
+    {{ field("password", "Password", "password", attrs='minlength="8" autocomplete="new-password"') }}
+    {{ field("confirm_password", "Confirm Password", "password", attrs='minlength="8" autocomplete="new-password"') }}
+    <div>
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" required>
+        <option value="">Choose one</option>
+        {% for option in ["female", "male", "non-binary", "prefer-not-to-say"] %}
+          <option value="{{ option }}" {% if form.get("gender") == option %}selected{% endif %}>{{ option|replace("-", " ")|title }}</option>
+        {% endfor %}
+      </select>
+      {% if errors and errors.get("gender") %}<p class="auth-error" role="alert">{{ errors.gender }}</p>{% endif %}
+    </div>
+    {{ field("date_of_birth", "Date of Birth", "date") }}
+    {{ field("address", "Address", "text", attrs='maxlength="500"') }}
+    {{ field("country", "Country") }}
+    {{ field("state", "State") }}
+    {{ field("city", "City") }}
+    {{ field("postal_code", "Postal Code") }}
+    <div class="full">
+      <label class="terms-label">
+        <input class="terms-checkbox" name="terms_accepted" type="checkbox" value="on" required
+          {% if form.get("terms_accepted") %}checked{% endif %}>
+        <span>I accept the Terms and Conditions</span>
+      </label>
+      {% if errors and errors.get("terms_accepted") %}<p class="auth-error" role="alert">{{ errors.terms_accepted }}</p>{% endif %}
+    </div>
+    <div class="full form-actions">
+      <button class="auth-button auth-button-primary" type="submit">Create account</button>
+      <button class="auth-button auth-button-secondary" type="reset">Reset form</button>
+    </div>
+  </form>
+  <p class="auth-switch">Already have an account? <a href="{{ url_for('login') }}">Sign in</a></p>
+</main>
+{% endblock %}

@@ -1,0 +1,51 @@
+﻿TestCaseID,FirstName,LastName,Email,Mobile,Password,ConfirmPassword,Gender,DateOfBirth,Address,Country,State,City,PostalCode,TermsAccepted,Scenario,ExpectedResult
+TC001,Aarav,Sharma,aarav.sharma01@example.com,9876543210,Strong@123,Strong@123,Male,1998-04-12,12 Green Park Road,India,Punjab,Bathinda,151001,Yes,Valid registration,Success
+TC002,Priya,Verma,priya.verma02@example.com,9876543211,Priya@456,Priya@456,Female,2000-08-21,24 Model Town,India,Punjab,Ludhiana,141001,Yes,Valid registration,Success
+TC003,Kabir,Singh,kabir.singh03@example.com,9876543212,Kabir#789,Kabir#789,Male,1997-01-05,8 Lake View,India,Haryana,Ambala,134003,Yes,Valid registration,Success
+TC004,Meera,Kaur,meera.kaur04@example.com,9876543213,Meera@123,Meera@123,Female,1999-11-30,17 Rose Avenue,India,Punjab,Patiala,147001,Yes,Valid registration,Success
+TC005,Ishaan,Patel,ishaan.patel05@example.com,9876543214,Ishaan!456,Ishaan!456,Male,1996-06-18,31 Sunrise Colony,India,Gujarat,Ahmedabad,380001,Yes,Valid registration,Success
+TC006,,Sharma,blank.first06@example.com,9876543215,Test@1234,Test@1234,Male,1998-03-10,10 Main Road,India,Punjab,Bathinda,151001,Yes,Missing first name,Error
+TC007,Anaya,,blank.last07@example.com,9876543216,Test@1234,Test@1234,Female,2001-02-14,11 Main Road,India,Punjab,Mansa,151505,Yes,Missing last name,Error
+TC008,Rohan,Mehta,,9876543217,Test@1234,Test@1234,Male,1995-09-09,22 Park Street,India,Delhi,New Delhi,110001,Yes,Missing email,Error
+TC009,Sana,Ali,sana-at-example.com,9876543218,Test@1234,Test@1234,Female,2002-07-07,5 Civil Lines,India,Punjab,Amritsar,143001,Yes,Invalid email format,Error
+TC010,Dev,Kumar,dev.kumar10@example.com,,Test@1234,Test@1234,Male,1994-12-12,6 Station Road,India,Rajasthan,Jaipur,302001,Yes,Missing mobile number,Error
+TC011,Nisha,Rao,nisha.rao11@example.com,9876543219,,,Female,1999-05-25,9 Hill Road,India,Maharashtra,Pune,411001,Yes,Missing password,Error
+TC012,Arjun,Das,arjun.das12@example.com,9876543220,Strong@123,Wrong@123,Male,1998-10-20,14 Market Road,India,West Bengal,Kolkata,700001,Yes,Password mismatch,Error
+TC013,Tara,Gill,tara.gill13@example.com,9876543221,12345,12345,Female,2000-01-01,19 Canal Road,India,Punjab,Jalandhar,144001,Yes,Weak password,Error
+TC014,Vihaan,Joshi,vihaan.joshi14@example.com,12345,Strong@123,Strong@123,Male,1997-04-04,3 Temple Road,India,Uttar Pradesh,Agra,282001,Yes,Invalid mobile length,Error
+TC015,Myra,Kapoor,myra.kapoor15@example.com,9876543222,Strong@123,Strong@123,Female,2001-09-16,44 Garden Street,India,Punjab,Chandigarh,160001,No,Terms not accepted,Error
+TC016,Reyansh,Nair,reyansh.nair16@example.com,9876543223,Strong@123,Strong@123,Male,1996-02-29,7 Beach Road,India,Kerala,Kochi,682001,Yes,Invalid date (non-leap year),Error
+TC017,Aditi,Mishra,aditi.mishra17@example.com,9876543224,Strong@123,Strong@123,Female,1998-13-10,15 School Road,India,Bihar,Patna,800001,Yes,Invalid month in date,Error
+TC018,Neil,Fernandes,neil.fernandes18@example.com,9876543225,Strong@123,Strong@123,Male,1997-08-19,2 Church Street,India,Goa,Panaji,403001,Yes,Valid registration,Success
+TC019,Zoya,Khan,zoya.khan19@example.com,9876543226,Zoya@2026,Zoya@2026,Female,2002-12-01,28 Rose Garden,India,Punjab,Firozpur,152001,Yes,Valid registration,Success
+TC020,Advik,Bansal,aarav.sharma01@example.com,9876543227,Strong@123,Strong@123,Male,1998-04-12,12 Green Park Road,India,Punjab,Bathinda,151001,Yes,Duplicate email,Error
+TC021,Riya,Chopra,riya.chopra21@example.com,9876543228,abc,abc,Female,2000-06-06,8 College Road,India,Punjab,Faridkot,151203,Yes,Password below minimum length,Error
+TC022,Kabir,Malik,kabir.malik22@example.com,9876543229,VeryLongPassword@12345678901234567890,VeryLongPassword@12345678901234567890,Male,1995-03-03,20 Ring Road,India,Haryana,Gurugram,122001,Yes,Password above maximum length,Error
+TC023,O'Neil,D'Souza,oneil.dsouza23@example.com,9876543230,Safe@12345,Safe@12345,Male,1993-07-17,6 Queen's Road,India,Maharashtra,Mumbai,400001,Yes,Names with apostrophes,Success
+TC024,<script>alert(1)</script>,Test,xss24@example.com,9876543231,Safe@12345,Safe@12345,Other,1998-05-05,Test Address,India,Punjab,Bathinda,151001,Yes,XSS input validation,Error
+TC025,Test,User,sql' OR '1'='1@example.com,9876543232,Safe@12345,Safe@12345,Male,1998-05-05,Test Address,India,Punjab,Bathinda,151001,Yes,SQL injection-like input validation,Error
+TC026,Aarav,Sharma,aarav.sharma01@example.com,9876543210,Strong@123,Strong@123,Male,1998-04-12,12 Green Park Road,India,Punjab,Bathinda,151001,Yes,Duplicate email repeated,Error
+TC027,Ira,Sen,ira.sen27@example.com,9876543233,Ira@12345,Ira@12345,Female,2003-02-28,9 River Road,India,Assam,Guwahati,781001,Yes,Valid registration,Success
+TC028,Om,Prakash,om.prakash28@example.com,9876543234,Om@12345,Om@12345,Male,1992-10-10,1 Old Town,India,Punjab,Muktsar,152026,Yes,Valid registration,Success
+TC029,Siya,Thakur,siya.thakur29@example.com,9876543235,Siya@12345,Siya@12345,Female,2001-04-31,7 Valley Road,India,Himachal Pradesh,Shimla,171001,Yes,Invalid day for month,Error
+TC030,Yuvan,Reddy,yuvan.reddy30@example.com,9876543236,Yuvan@123,Yuvan@123,Male,1999-12-31,18 Tech Park,India,Telangana,Hyderabad,500001,Yes,Valid registration,Success
+TC031,Kiara,Jain,kiara.jain31@example.com,9876543237,Kiara@123,Kiara@123,Female,2000-11-11,3 Lotus Lane,India,Punjab,Zirakpur,140603,Yes,Valid registration,Success
+TC032,Atharv,Saxena,atharv.saxena32@example.com,9876543238,Atharv@123,Atharv@123,Male,1996-05-15,55 MG Road,India,Karnataka,Bengaluru,560001,Yes,Valid registration,Success
+TC033,Navya,Bedi,navya.bedi33@example.com,9876543239,Navya@123,Navya@123,Female,1998-08-08,10 Mall Road,India,Punjab,Hoshiarpur,146001,Yes,Valid registration,Success
+TC034,Ayaan,Sethi,ayaan.sethi34@example.com,9876543240,Ayaan@123,Ayaan@123,Male,1997-07-21,21 Model Town,India,Punjab,Sangrur,148001,Yes,Valid registration,Success
+TC035,Diya,Pillai,diya.pillai35@example.com,9876543241,Diya@123,Diya@123,Female,2002-03-19,4 Palm Street,India,Tamil Nadu,Chennai,600001,Yes,Valid registration,Success
+TC036,Vivaan,Garg,vivaan.garg36@example.com,9876543242,Vivaan@123,Vivaan@123,Male,1995-01-31,30 Clock Tower Road,India,Punjab,Bathinda,151001,Yes,Valid registration,Success
+TC037,Sara,Iyer,sara.iyer37@example.com,9876543243,Sara@123,Sara@123,Female,1999-09-09,12 Lake Road,India,Tamil Nadu,Coimbatore,641001,Yes,Valid registration,Success
+TC038,Krish,Arora,krish.arora38@example.com,9876543244,Krish@123,Krish@123,Male,1998-06-30,16 Market Street,India,Punjab,Ludhiana,141001,Yes,Valid registration,Success
+TC039,Mahi,Sood,mahi.sood39@example.com,9876543245,Mahi@123,Mahi@123,Female,2001-01-20,25 Garden Road,India,Punjab,Ropar,140001,Yes,Valid registration,Success
+TC040,Rudra,Bhatia,rudra.bhatia40@example.com,9876543246,Rudra@123,Rudra@123,Male,1994-04-14,9 Court Road,India,Punjab,Moga,142001,Yes,Valid registration,Success
+TC041,Anvi,Desai,anvi.desai41@example.com,9876543247,Anvi@123,Anvi@123,Female,2003-05-22,7 Station Road,India,Gujarat,Surat,395003,Yes,Valid registration,Success
+TC042,Dhruv,Puri,dhruv.puri42@example.com,9876543248,Dhruv@123,Dhruv@123,Male,1996-12-25,14 Park Avenue,India,Punjab,Pathankot,145001,Yes,Valid registration,Success
+TC043,Ishita,Ghosh,ishita.ghosh43@example.com,9876543249,Ishita@123,Ishita@123,Female,1997-02-29,8 Central Road,India,West Bengal,Howrah,711101,Yes,Invalid leap date,Error
+TC044,Parth,Kulkarni,parth.kulkarni44@example.com,9876543250,Parth@123,Parth@123,Male,1998-10-01,6 University Road,India,Maharashtra,Nagpur,440001,Yes,Valid registration,Success
+TC045,Tanya,Saini,tanya.saini45@example.com,9876543251,Tanya@123,Tanya@123,Female,2000-02-29,18 Rose Street,India,Punjab,Barnala,148101,Yes,Valid leap date,Success
+TC046,Rehan,Qureshi,rehan.qureshi46@example.com,9876543252,Rehan@123,Rehan@123,Male,1995-08-12,2 Bazaar Road,India,Punjab,Malerkotla,148023,Yes,Valid registration,Success
+TC047,Aisha,Noor,aisha.noor47@example.com,9876543253,Aisha@123,Aisha@123,Female,1999-06-06,11 Garden Lane,India,Delhi,New Delhi,110001,Yes,Valid registration,Success
+TC048,Manav,Khanna,manav.khanna48@example.com,9876543254,Manav@123,Manav@123,Male,1993-03-23,32 Sector Road,India,Punjab,Mohali,160055,Yes,Valid registration,Success
+TC049,Esha,Bajaj,esha.bajaj49@example.com,9876543255,Esha@123,Esha@123,Female,2002-10-30,5 College Avenue,India,Punjab,Bathinda,151001,Yes,Valid registration,Success
+TC050,Samar,Gill,samar.gill50@example.com,9876543256,Samar@123,Samar@123,Male,1997-11-19,19 Canal Colony,India,Punjab,Bathinda,151001,Yes,Valid registration,Success
